@@ -1,0 +1,136 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "Go",
+    "patterns": [
+        {
+            "include": "#keywords"
+        },
+        {
+            "include": "#strings"
+        },
+        {
+            "include": "#service"
+        },
+        {
+            "include": "#handler"
+        },
+        {
+            "include": "#httpMethods"
+        },
+        {
+            "include": "#returns"
+        },
+        {
+            "include": "#type"
+        },
+        {
+            "include": "#comments"
+        },
+        {
+            "include": "#variables"
+        },
+        {
+            "include": "#routes"
+        }
+    ],
+    "repository": {
+        "keywords": {
+            "patterns": [{
+                "name": "keyword.control.go",
+                "match": "\\b(if|while|for|return|type)\\b"
+            }]
+        },
+        "strings": {
+            "name": "string.quoted.double.go",
+            "begin": "\"",
+            "end": "\"",
+            "patterns": [
+                {
+                    "name": "constant.character.escape.go",
+                    "match": "\\\\."
+                }
+            ]
+        },
+        "service": {
+            "patterns": [{
+                "name": "keyword.control.go",
+                "match": "\\bservice\\b"
+            }]
+        },
+        "handler": {
+            "patterns": [
+                {
+                    "name": "entity.name.tag.go",
+                    "match": "@handler"
+                },
+                {
+                    "name": "entity.name.function.go",
+                    "match": "(?<=@handler\\s)\\w+"
+                }
+            ]
+        },
+        "httpMethods": {
+            "patterns": [{
+                "name": "keyword.control.go",
+                "match": "\\b(get|post|put|delete)\\b"
+            }]
+        },
+        "returns": {
+            "patterns": [{
+                "name": "keyword.other.returns.go",
+                "match": "\\breturns\\b"
+            }]
+        },
+        "type": {
+            "patterns": [
+                {
+                    "name": "entity.name.type.go",
+                    "match": "\\btype\\s+\\w+\\b"
+                },
+                {
+                    "name": "entity.name.struct.go",
+                    "match": "\\bstruct\\b"
+                },
+                {
+                    "name": "variable.other.member.go",
+                    "match": "(?<=\\{\\s*)[a-zA-Z_][a-zA-Z0-9_]*"
+                },
+                {
+                    "name": "storage.type.go",
+                    "match": "\\b(int|string|uint|interface|UserInfo)\\b"
+                }
+            ]
+        },
+        "comments": {
+            "patterns": [
+                {
+                    "name": "comment.line.double-slash.go",
+                    "begin": "//",
+                    "end": "$"
+                }
+            ]
+        },
+        "variables": {
+            "patterns": [
+                {
+                    "name": "variable.other.go",
+                    "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b",
+                    "captures": {
+                        "1": {
+                            "name": "variable.other.go"
+                        }
+                    }
+                },
+                {
+                    "name": "storage.type.go",
+                    "match": "\\b(int|string|uint|interface|UserInfo)\\b"
+                },
+                {
+                    "name": "entity.name.type.go",
+                    "match": "\\b(UserInfoResponse)\\b"
+                }
+            ]
+        }
+    },
+    "scopeName": "source.go"
+}
