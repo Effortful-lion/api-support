@@ -3,7 +3,8 @@
   "displayName": "Api Support",
   "publisher": "lion",
   "description": "用于支持.api文件的语法高亮，用于自身学习使用",
-  "version": "0.0.2",
+  "version": "0.0.3",
+  "icon": "image/lion.png",
   "engines": {
     "vscode": "^1.96.0"
   },
